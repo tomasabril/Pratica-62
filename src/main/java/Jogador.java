@@ -3,8 +3,8 @@
 * @author Tomas Abril
 */
 public class Jogador {
-    private int numero;
-    private String nome;
+    final public int numero;
+    final public String nome;
 
     public Jogador(int numero, String nome) {
         this.numero = numero;
