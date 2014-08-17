@@ -3,23 +3,23 @@
  *
  * @author Tomas Abril
  */
-public class Jogador implements Comparable<Jogador>{
+public class Jogador implements Comparable<Jogador> {
 
-    final public int numero;
-    final public String nome;
+	final public int numero;
+	final public String nome;
 
-    public Jogador(int numero, String nome) {
-        this.numero = numero;
-        this.nome = nome;
-    }
+	public Jogador(int numero, String nome) {
+		this.numero = numero;
+		this.nome = nome;
+	}
 
-    @Override
-    public String toString() {
-        return numero + " - " + nome;
-    }
+	@Override
+	public String toString() {
+		return numero + " - " + nome;
+	}
 
-    @Override
-    public int compareTo(Jogador o) {
-        
-    }
+	@Override
+	public int compareTo(Jogador o) {
+		return this.numero - o.numero;
+	}
 }

@@ -11,37 +11,33 @@ import java.util.Comparator;
  */
 public class JogadorComparator implements Comparator<Jogador> {
 
-    public boolean crescente = true;
-    public boolean alfabetica = false;
+	public boolean crescente = true;
+	public boolean alfabetica = false;
 
-    public JogadorComparator(boolean ordem, boolean alfa) {
-        this.crescente = ordem;
-        this.alfabetica = alfa;
-    }
+	public JogadorComparator(boolean ordem, boolean alfa) {
+		this.crescente = ordem;
+		this.alfabetica = alfa;
+	}
 
-    @Override
-    public int compare(Jogador o1, Jogador o2) {
-        if (alfabetica == false) {
-            if (crescente == true) {
-                return o1.numero - o2.numero;
-            } else {
-                return o2.numero - o1.numero;
-            }
-        }
-        if (alfabetica == true) {
-            if (crescente == true) {
-                int tam;
-                if (o1.nome.length() < o2.nome.length()) {
-                    tam = o1.nome.length();
-                } else {
-                    tam = o2.nome.length();
-                }
-                for (int i = 0; i < tam; i++) {
-                    return (o1.nome.charAt(i) > o2.nome.charAt(i)) ? 1 : -1;
-                }
-            }
-        }
+	@Override
+	public int compare(Jogador o1, Jogador o2) {
 
-    }
+		int retorno;
+
+		if (alfabetica) {
+			if (o1.nome.equals(o1.nome)) {
+				retorno = o1.compareTo(o2);
+			} else {
+				retorno = o1.nome.compareTo(o1.nome);
+			}
+		} else {
+			if (o1.numero == o2.numero) {
+				retorno = o1.nome.compareTo(o1.nome);
+			} else {
+				retorno = o1.compareTo(o2);
+			}
+		}
+		return (crescente == true) ? retorno : -retorno;
+	}
 
 }
